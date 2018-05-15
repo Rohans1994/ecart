@@ -99,8 +99,10 @@
                     <button class="btn btn-success"  name="updateCart" #updateCart type="button" (click)="updateCarton()" >Update Carton</button>
                 </tr>
               </table>
-              
-                <h3>Total Amount to be paid for {{noOfItems}} items is &#x20B9; {{amount}}</h3>
+                <div *ngIf="noOfItems==0">
+                  <h3>Your cart is empty</h3>
+                </div>
+                <h3 *ngIf="noOfItems>0">Total Amount to be paid for {{noOfItems}} items is &#x20B9; {{amount}}</h3>
                 
               </form>
           </div>
