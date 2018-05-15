@@ -1,0 +1,113 @@
+<!<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-info navbar-dark fixed-top">
+        <a class="navbar-brand" href="#">
+            <img src="https://wisdmlabs.com/site/wp-content/uploads/2009/11/WisdmLabs-Logo-Final-transparent.png" alt="logo" style="width:60px;">
+        </a>
+        
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+          <ul class="nav navbar-nav navbar-center">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Shop</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Pages</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Features</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+              <li class="nav-item">
+                  <a class="nav-link" [routerLink]="['/cart']"><img class="cart" src="https://image.flaticon.com/icons/svg/34/34387.svg">
+                    <span  *ngIf="noOfItems>0" class="badge badge-dark">{{noOfItems}}</span>
+                </a>
+              </li>
+              <li class="nav-item"> 
+                  <a class="nav-link" href="#">
+                      <span  *ngIf="amount>0" class="badge badge-success"> &#x20B9; {{amount}}</span>
+                  </a>
+              </li>
+          </ul>
+        </div>
+      </nav>
+    
+      <main role="main" class="container">
+    
+          <div class="container">
+            <form>
+              <table class="table borderless">
+                <tr class="info">
+                  <th>
+                    Product Name
+                  </th>
+                  <th>
+                    Description
+                  </th>
+                  <th>
+    
+                  </th>
+                  <th>
+                      Quantity
+                  </th>
+                  <th>
+                      Price
+                  </th>
+                  <th>
+                      Total
+                  </th>
+                </tr> 
+        
+                <tr *ngFor= "let data of selectedProd; let i=index" >
+                  <td id ="{{data.productName}}">
+                     {{data.productName}}
+                  </td>
+                  <td id ="{{data.desc}}">
+                    {{data.desc}}
+                 </td>
+                 <td>
+                    <img class="display" src="{{data.src}}">
+                 </td>
+                  <td>
+                      <input type="number"  id="{{i}}" name="quantity" #quantity min="0" max="10" value="{{data.quantity}}" (change)="updateQuantity(quantity.id,quantity.value)" >
+                  </td>
+                  <td>
+                      {{data.price}}
+                  </td>
+                  <td>
+                      {{data.total}}
+                  </td>
+                  <td>
+                      <button class="btn btn-info" id="{{i}}" name="removeProd" #removeProd type="button"(click)="removeProduct(removeProd.id)" >Remove from cart</button>
+                  </td>
+                </tr>
+                <tr>
+                    <button class="btn btn-success" id="{{i}}" name="updateCart" #updateCart type="button" (click)="updateCarton()" >Update Carton</button>
+                </tr>
+              </table>
+              
+                <h3>Total Amount to be paid for {{noOfItems}} items is &#x20B9; {{amount}}</h3>
+                
+              </form>
+          </div>
+        
+        </main><!-- /.container -->
+        
+        
+</body>
+</html>
+

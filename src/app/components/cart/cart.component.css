@@ -1,0 +1,28 @@
+img.display{
+    height:75px ;
+    width: 75px;
+
+}
+
+.navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+}
+
+.navbar-brand{
+    margin-left: 10%;
+}
+
+img.cart{
+    height:40px ;
+    width: 40px;
+}
+
+.navbar-nav.navbar-right {
+    position: absolute;
+    left: 80%;
+    transform: translatex(-50%);
+    color: aqua;
+    font-size: 25px;
+}

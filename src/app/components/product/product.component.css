@@ -1,0 +1,40 @@
+.navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+   
+}
+
+.navbar-brand{
+    margin-left: 10%;
+}
+
+.navbar-nav.navbar-right {
+    position: absolute;
+    left: 80%;
+    transform: translatex(-50%);
+    color: aqua;
+    font-size: 25px;
+}
+
+ img.cart{
+     height:40px ;
+     width: 40px;
+ }
+ img.display{
+    height:75px ;
+    width: 75px;
+}
+
+img.card-img-top{
+    height:250px ;
+    width: 100px;
+    
+}
+
+.card{
+    text-align: center;
+    border: none;
+}
+
+    

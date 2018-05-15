@@ -1,0 +1,14 @@
+img.foot{
+    height:75px ;
+    width: 75px;
+}
+
+.footer{
+    padding-left: 100px;
+    border-top-style: solid;
+    border-color: aqua;
+    border-top-width: 1px;
+}
+
+
+
