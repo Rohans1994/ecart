@@ -1,3 +1,12 @@
+Installation Instruction:
+
+One should have node and angular cli installed
+Open the project location through GIT ash
+type 'npm install' and enter
+type 'ng serve' and enter
+One can view the application on port 4200 on locahost 
+
+
 # Ecom
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
