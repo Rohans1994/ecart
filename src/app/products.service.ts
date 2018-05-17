@@ -24,6 +24,7 @@ export class ProductsService {
     for(var i=0; i<this.data.length;i++){
       this.newPrice[i]=0;
       this.newQuantity[i]=0;
+      this.selectedProd[i]=this.data[i];
     }
     
    }
@@ -35,16 +36,16 @@ export class ProductsService {
  onChange(value, id){
   if(value>0){
   this.price=this.data[id].price*value;
-  this.newQuantity[id]=value;                               //To check the quantity on change
-  this.newPrice[id]=this.price;
+  this.newQuantity[id]=Number(this.newQuantity[id])+Number(value);                              
+  this.newPrice[id]=this.newPrice[id]+this.price;
   this.data[id].isChecked=true;
-  this.data[id].quantity=value;
-  this.data[id].total=this.price;
+  this.data[id].quantity=Number(this.data[id].quantity)+Number(value);
+  this.data[id].total=this.data[id].total+Number(this.price);
   this.getTotal(this.newPrice,this.newQuantity);
   }
   else{
     this.price=0;
-    this.newQuantity[id]=value;                               //To check the quantity on change
+    this.newQuantity[id]=value;                               
     this.newPrice[id]=this.price;
     this.data[id].isChecked=false;
     this.data[id].quantity=value;
@@ -53,35 +54,36 @@ export class ProductsService {
   }
 }
 getTotal(arr:any, arr1:any):void{
+  console.log(arr);
+  console.log(arr1);
     this.amount=0;
-    this.noOfItems=0;                                       //To get the total amount and total quantity
+    this.noOfItems=0;                                       
     for(var i=0;i<arr.length;i++){                          
       this.amount=this.amount+arr[i];
       this.noOfItems=this.noOfItems+Number(arr1[i]);
   }
+  this.updateCarton();
 }
 
 getSelectedProduct(){
-    //this.selectedProd=null;
+    
     for(var i=0; i<this.data.length;i++){
       if(this.data[i].isChecked==true){
-        this.selectedProd.push(this.data[i]);
-        this.data[i].isChecked=false;
+        this.selectedProd[i]=this.data[i];
       }
       else{}
        
   }
-  
-  return this.selectedProd;
+  //return this.selectedProd;
  }
 
  removeProduct(index){
   if (index > -1) {
     this.noOfItems=this.noOfItems-this.selectedProd[index].quantity;
     this.amount=this.amount-this.selectedProd[index].total;
-    this.selectedProd.splice(index, 1);
-    this.newQuantity.splice(index,1);
-    this.newPrice.splice(index,1);
+    this.data[index].isChecked=false;
+    this.newQuantity[index]=0;
+    this.newPrice[index]=0;
     this.updateCarton();
   }
 }
@@ -102,12 +104,5 @@ updateQuantity(index,value){
     this.selectedProd[i].total=this.newQuantity[i]*this.selectedProd[i].price;
     this.selectedProd[i].quantity=this.newQuantity[i];
   }
-  console.log(this.noOfItems);
-  console.log(this.amount);
-  console.log(this.newQuantity);
-  console.log(this.newPrice);
-  console.log("In update");
  }
-
-
 }

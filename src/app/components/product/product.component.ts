@@ -20,7 +20,7 @@ export class ProductComponent implements OnInit {
   noOfItems:number=0;
 
   ngOnInit() {
-    this.data=this.service.getProducts();
+    this.data=this.service.data;
     this.noOfItems=this.service.noOfItems;
     this.amount=this.service.amount;
     for(var i=0; i<this.data.length;i++){

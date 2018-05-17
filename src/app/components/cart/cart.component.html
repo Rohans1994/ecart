@@ -71,8 +71,8 @@
                       Total
                   </th>
                 </tr> 
-        
-                <tr *ngFor= "let data of selectedProd; let i=index" >
+                <ng-container *ngFor= "let data of selectedProd; let i=index">
+                <tr *ngIf="data.isChecked==true" >
                   <td id ="{{data.productName}}">
                      {{data.productName}}
                   </td>
@@ -95,6 +95,7 @@
                       <button class="btn btn-info" id="{{i}}" name="removeProd" #removeProd type="button"(click)="removeProduct(removeProd.id)" >Remove from cart</button>
                   </td>
                 </tr>
+              </ng-container>
                 <tr>
                     <button class="btn btn-success"  name="updateCart" #updateCart type="button" (click)="updateCarton()" >Update Carton</button>
                 </tr>
@@ -112,4 +113,3 @@
         
 </body>
 </html>
-
