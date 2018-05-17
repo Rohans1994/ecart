@@ -1,7 +1,7 @@
 Installation Instruction:
 
 One should have node and angular cli installed
-Open the project location through GIT ash
+Open the project location through GIT bash
 type 'npm install' and enter
 type 'ng serve' and enter
 One can view the application on port 4200 on locahost 
