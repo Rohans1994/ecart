@@ -9,6 +9,10 @@
     margin-left: 10%;
 }
 
+.navbar{
+    height: 45px;
+}
+
 .navbar-nav.navbar-right {
     position: absolute;
     left: 80%;

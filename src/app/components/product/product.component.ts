@@ -32,7 +32,7 @@ export class ProductComponent implements OnInit {
   onChange(value, id){
     if(value>=0){
     this.service.onChange(value,id);
-    this.newQuantity[id]=this.service.newQuantity[id];                               //To check the quantity on change
+    this.newQuantity[id]=this.service.newQuantity[id];     
     this.newPrice[id]=this.service.newPrice[id];
     this.amount=this.service.amount;
     this.noOfItems=this.service.noOfItems;
